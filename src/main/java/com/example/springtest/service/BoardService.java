@@ -8,9 +8,9 @@ import java.io.IOException;
 import java.util.List;
 
 public interface BoardService {
-    BoardDAO saveFileBoard(InputForm input) throws IOException;
+    BoardDAO saveFileBoard(InputForm input,Long memberId) throws IOException;
 
-    BoardDAO saveTextBoard(InputForm input) throws IOException;
+    BoardDAO saveTextBoard(InputForm input,Long memberId) throws IOException;
 
     List<BoardDAO> getAllBoard();
 

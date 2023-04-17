@@ -20,11 +20,12 @@ public class BoardServiceImpl implements BoardService{
     private final FileSave fileStore;
 
     @Override
-    public BoardDAO saveFileBoard(InputForm input) throws IOException {
+    public BoardDAO saveFileBoard(InputForm input,Long memberId) throws IOException {
         //파일저장 및 저장된 파일의 정보 추출
         FileInfo uploadFile = fileStore.saveFile(input.getMultipartFile());
         //데이터 엑세스에 사용되는 DAO객체 생성
         BoardDAO board = BoardDAO.builder()
+                .memberId(memberId)
                 .title(input.getTitle())
                 .content(input.getContent())
                 .realFileName(uploadFile.getRealFileName())
@@ -37,8 +38,9 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public BoardDAO saveTextBoard(InputForm input) throws IOException {
+    public BoardDAO saveTextBoard(InputForm input,Long memberId) throws IOException {
         BoardDAO board = BoardDAO.builder()
+                .memberId(memberId)
                 .title(input.getTitle())
                 .content(input.getContent())
                 .build();

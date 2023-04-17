@@ -9,6 +9,7 @@
 제목 : <span th:text="${board.title}">title</span><br>
 내용 : <span th:text="${board.content}">content</span><br>
 사진 : <img th:src="@{../../static/item/{fileName}(fileName=${board.serverSaveFileName})}" width="300" height="300"/>
-
+<a href="../index.html" th:href="@{/board/update/{boardId}(boardId=${board.boardNumber})}">수정</a>
+<a href="../index.html" th:href="@{/board/remove/{boardId}(boardId=${board.boardNumber})}">삭제</a>
 </body>
 </html>

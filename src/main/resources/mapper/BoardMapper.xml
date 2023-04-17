@@ -4,8 +4,8 @@
 <mapper namespace="com.example.springtest.mapper.BoardMapper">
 
     <insert id="saveBoard" parameterType="com.example.springtest.domain.BoardDAO" useGeneratedKeys="true" keyColumn="board_number" keyProperty="boardNumber">
-        insert into boarddao(title,content,server_save_file_name,real_file_name)
-        values (#{title},#{content},#{serverSaveFileName},#{realFileName})
+        insert into boarddao(title,content,server_save_file_name,real_file_name,member_id)
+        values (#{title},#{content},#{serverSaveFileName},#{realFileName},#{memberId})
     </insert>
 
     <select id="getAllBoard" resultType="com.example.springtest.domain.BoardDAO" parameterType="com.example.springtest.domain.BoardDAO">

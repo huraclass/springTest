@@ -9,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 public class BoardDAO {
     private Long boardNumber;
+    private Long memberId;
     private String title;
     private String content;
     private String serverSaveFileName;

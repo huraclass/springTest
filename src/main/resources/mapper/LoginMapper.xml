@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springtest.mapper.LoginMapper">
+
+    <insert id="signUp" parameterType="com.example.springtest.domain.Member" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into member(login_id,name,password)
+        values(#{loginId},#{name},#{password})
+    </insert>
+    <select id="login" parameterType="com.example.springtest.domain.LoginForm" resultType="com.example.springtest.domain.Member">
+        select * from member where login_id = #{loginId} and password = #{password}
+    </select>
+</mapper>
